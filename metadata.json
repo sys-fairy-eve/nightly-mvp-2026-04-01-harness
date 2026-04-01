@@ -1,0 +1,24 @@
+{
+  "inspired_by": "revfactory/harness",
+  "project_name": "Harness",
+  "description": "A visual agent team designer — pick an architecture pattern, define agents with roles and capabilities, see them rendered as an interactive node graph, and export the config as Markdown, AGENTS.md, or JSON",
+  "tech_stack": ["Vite", "React", "TypeScript", "Tailwind CSS", "React Flow", "Zustand"],
+  "build_date": "2026-04-01",
+  "build_time_hours": 0.5,
+  "status": "complete",
+  "features": [
+    "6 architectural patterns (Pipeline, Fan-out/Fan-in, Expert Pool, Producer-Reviewer, Supervisor, Hierarchical)",
+    "Interactive node graph with drag-and-drop agent positioning",
+    "Custom agent nodes showing name, role, emoji, capabilities",
+    "Animated connection edges with data flow labels",
+    "Agent editor panel — edit name, role, emoji, color, capabilities",
+    "Add/remove agents and drag to create new connections",
+    "3 export formats: Markdown summary, AGENTS.md (full agent roster), JSON",
+    "Copy to clipboard and download file",
+    "4 example teams including Daniel's agent household and Nightly MVP Builder pipeline",
+    "MiniMap and zoom controls",
+    "Dark theme with glassmorphism UI"
+  ],
+  "live_url": "https://mvp.trollefsen.com/2026-04-01-harness/",
+  "github_url": ""
+}
