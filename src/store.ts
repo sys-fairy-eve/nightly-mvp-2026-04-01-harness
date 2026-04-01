@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import type { Node, Edge } from '@xyflow/react';
 import type { AgentDefinition, ConnectionDefinition, PatternType, TeamConfig } from './types';
 import { AGENT_COLORS, AGENT_EMOJIS } from './types';
@@ -134,7 +135,7 @@ function nextAgentId(): string {
   return `agent-${_nextAgentId++}`;
 }
 
-export const useHarnessStore = create<HarnessState>((set, get) => ({
+export const useHarnessStore = create<HarnessState>()(persist((set, get) => ({
   teamName: 'New Team',
   pattern: null,
   agents: [],
@@ -239,6 +240,14 @@ export const useHarnessStore = create<HarnessState>((set, get) => ({
     const { teamName, pattern, agents, connections } = get();
     return { name: teamName, pattern: pattern || 'pipeline', agents, connections };
   },
+}), {
+  name: 'harness-state',
+  partialize: (state) => ({
+    teamName: state.teamName,
+    pattern: state.pattern,
+    agents: state.agents,
+    connections: state.connections,
+  }),
 }));
 
 function getPatternTemplate(pattern: PatternType): { agents: AgentDefinition[]; connections: ConnectionDefinition[] } {
